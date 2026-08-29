@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <button class="close-sidebar" id="closeSidebar" aria-label="Close sidebar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="logo">
+      <div class="logo-icon">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+
+      <div>
+        <h2>The name</h2>
+        <p>Sustainable Future, Smarter Today</p>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+
+      <a href="#" class="nav-item active">
+        <i class="fa-solid fa-table-columns"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Monitoring</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <i class="fa-solid fa-chart-column"></i>
+        <span>Predictions</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Optimization</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <i class="fa-solid fa-bell"></i>
+        <span>Alerts</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>Reports</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>Resources</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <i class="fa-regular fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+
+    </nav>
+
+    <div class="sustainability-card">
+
+      <h3>Sustainability Score</h3>
+
+      <div class="score-circle">
+        <div class="score-inner">
+          <span id="score">87</span>
+          <small>/100</small>
+        </div>
+      </div>
+
+      <div class="score-status">
+        <i class="fa-solid fa-leaf"></i>
+        Excellent
+      </div>
+
+      <p>
+        You are doing great!<br>
+        Keep improving 🌱
+      </p>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- MOBILE CONTROLS -->
+    <button class="mobile-menu-btn" id="openSidebar" aria-label="Open sidebar">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- This overlay has NO active class by default -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- HEADER -->
+    <header class="top-header">
+
+      <div class="welcome-section">
+        <h1>
+          Welcome back!
+          <span>👋</span>
+        </h1>
+
+        <p>
+          Here's what's happening with your renewable resources today.
+        </p>
+      </div>
+
+
+      <div class="header-actions">
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search anything...">
+        </div>
+
+
+        <div class="icon-button notification">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notification-count">4</span>
+        </div>
+
+
+        <div class="icon-button theme-icon">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+
+
+        <div class="profile">
+
+          <div class="avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+
+          <span>Admin</span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- STAT CARDS -->
+    <section class="stats-grid">
+
+      <div class="stat-card">
+
+        <div class="stat-icon solar-icon">
+          <i class="fa-solid fa-solar-panel"></i>
+        </div>
+
+        <div>
+          <p>Solar Generated</p>
+          <h2 id="solarGenerated">24.8 kWh</h2>
+
+          <small class="positive">
+            <i class="fa-solid fa-arrow-up"></i>
+            12.5% vs yesterday
+          </small>
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon energy-icon">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <div>
+          <p>Energy Consumed</p>
+          <h2 id="energyConsumed">19.2 kWh</h2>
+
+          <small class="positive">
+            <i class="fa-solid fa-arrow-down"></i>
+            8.4% vs yesterday
+          </small>
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon storage-icon">
+          <i class="fa-solid fa-battery-three-quarters"></i>
+        </div>
+
+        <div>
+          <p>Energy Stored</p>
+          <h2 id="energyStored">12.6 kWh</h2>
+
+          <small>70% of capacity</small>
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon carbon-icon">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+
+        <div>
+          <p>CO₂ Reduced</p>
+          <h2 id="co2Reduced">18.7 kg</h2>
+
+          <small class="positive">
+            <i class="fa-solid fa-arrow-up"></i>
+            15.3% vs yesterday
+          </small>
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon water-icon">
+          <i class="fa-solid fa-droplet"></i>
+        </div>
+
+        <div>
+          <p>Water Saved</p>
+          <h2 id="waterSaved">320 L</h2>
+
+          <small class="positive">
+            <i class="fa-solid fa-arrow-up"></i>
+            10.2% vs yesterday
+          </small>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MIDDLE ROW -->
+    <section class="dashboard-row">
+
+      <!-- ENERGY OVERVIEW -->
+      <div class="panel energy-overview">
+
+        <div class="panel-header">
+
+          <div>
+            <h2>Energy Overview</h2>
+
+            <div class="chart-legend">
+
+              <span>
+                <i class="legend generated"></i>
+                Generated
+              </span>
+
+              <span>
+                <i class="legend consumed"></i>
+                Consumed
+              </span>
+
+              <span>
+                <i class="legend stored"></i>
+                Stored
+              </span>
+
+            </div>
+
+          </div>
+
+          <select>
+            <option>Today</option>
+            <option>Yesterday</option>
+            <option>This Week</option>
+          </select>
+
+        </div>
+
+
+        <div class="chart-placeholder">
+
+          <div class="chart-y-axis">
+            <span>40</span>
+            <span>30</span>
+            <span>20</span>
+            <span>10</span>
+            <span>0</span>
+          </div>
+
+
+          <div class="chart-area">
+
+            <svg
+              viewBox="0 0 600 250"
+              preserveAspectRatio="none"
+              class="energy-svg"
+            >
+
+              <polyline
+                class="generated-line"
+                points="
+                0,180 30,178 60,170 90,150
+                120,140 150,110 180,115 210,90
+                240,60 270,50 300,20 330,40
+                360,10 390,70 420,90 450,120
+                480,145 510,165 540,185 570,195 600,205
+                "
+              />
+
+              <polyline
+                class="consumed-line"
+                points="
+                0,160 30,160 60,165 90,158
+                120,162 150,155 180,160 210,150
+                240,130 270,115 300,100 330,120
+                360,80 390,95 420,130 450,120
+                480,145 510,150 540,148 570,150 600,150
+                "
+              />
+
+              <polyline
+                class="stored-line"
+                points="
+                0,215 30,215 60,213 90,208
+                120,205 150,195 180,198 210,185
+                240,175 270,160 300,125 330,130
+                360,120 390,130 420,165 450,180
+                480,195 510,205 540,212 570,215 600,215
+                "
+              />
+
+            </svg>
+
+          </div>
+
+        </div>
+
+
+        <div class="chart-x-axis">
+          <span>12 AM</span>
+          <span>4 AM</span>
+          <span>8 AM</span>
+          <span>12 PM</span>
+          <span>4 PM</span>
+          <span>8 PM</span>
+          <span>12 AM</span>
+        </div>
+
+      </div>
+
+
+      <!-- FORECAST -->
+      <div class="panel forecast-panel">
+
+        <div class="panel-header">
+
+          <h2>Generation Forecast</h2>
+
+          <select>
+            <option>Tomorrow</option>
+            <option>Today</option>
+          </select>
+
+        </div>
+
+
+        <p class="forecast-label">Expected Generation</p>
+
+        <h1>18.6 <span>kWh</span></h1>
+
+        <p class="forecast-warning">
+          <i class="fa-solid fa-arrow-down"></i>
+          18% less
+          <span>than today</span>
+        </p>
+
+
+        <div class="bar-chart">
+
+          <div class="bar" style="height: 5%"></div>
+          <div class="bar" style="height: 8%"></div>
+          <div class="bar" style="height: 12%"></div>
+          <div class="bar" style="height: 18%"></div>
+          <div class="bar" style="height: 30%"></div>
+          <div class="bar" style="height: 45%"></div>
+          <div class="bar" style="height: 65%"></div>
+          <div class="bar" style="height: 78%"></div>
+          <div class="bar" style="height: 90%"></div>
+          <div class="bar" style="height: 100%"></div>
+          <div class="bar" style="height: 85%"></div>
+          <div class="bar" style="height: 70%"></div>
+          <div class="bar" style="height: 82%"></div>
+          <div class="bar" style="height: 65%"></div>
+          <div class="bar" style="height: 45%"></div>
+          <div class="bar" style="height: 30%"></div>
+          <div class="bar" style="height: 18%"></div>
+          <div class="bar" style="height: 10%"></div>
+
+        </div>
+
+
+        <div class="forecast-times">
+          <span>12 AM</span>
+          <span>6 AM</span>
+          <span>12 PM</span>
+          <span>6 PM</span>
+          <span>12 AM</span>
+        </div>
+
+      </div>
+
+
+      <!-- WEATHER -->
+      <div class="panel weather-panel">
+
+        <h2>Weather Impact</h2>
+
+        <p class="location">Bengaluru, India</p>
+
+
+        <div class="weather-main">
+
+          <div class="weather-icon">
+            <i class="fa-solid fa-cloud-sun"></i>
+          </div>
+
+          <div>
+            <h1>28°C</h1>
+            <p>Partly Cloudy</p>
+          </div>
+
+        </div>
+
+
+        <div class="weather-details">
+
+          <div>
+            <span>Irradiance</span>
+            <strong>700 W/m²</strong>
+          </div>
+
+          <div>
+            <span>Cloud Cover</span>
+            <strong>32%</strong>
+          </div>
+
+          <div>
+            <span>Humidity</span>
+            <strong>58%</strong>
+          </div>
+
+          <div>
+            <span>Wind Speed</span>
+            <strong>12 km/h</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LOWER GRID -->
+    <section class="lower-grid">
+
+      <!-- RECOMMENDATION -->
+      <div class="panel recommendation-panel">
+
+        <div class="panel-header">
+
+          <h2>Smart Recommendation</h2>
+
+          <span class="ai-badge">AI Powered</span>
+
+        </div>
+
+
+        <div class="recommendation-content">
+
+          <div class="recommendation-icon">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+
+
+          <div>
+
+            <p class="recommendation-text">
+              Great! Solar generation is high between
+              <strong>10 AM - 2 PM.</strong>
+            </p>
+
+            <p>We recommend you to:</p>
+
+
+            <ul>
+
+              <li>
+                <i class="fa-solid fa-check"></i>
+                Run high-power appliances now
+              </li>
+
+              <li>
+                <i class="fa-solid fa-check"></i>
+                Charge battery storage
+              </li>
+
+              <li>
+                <i class="fa-solid fa-check"></i>
+                Reduce grid dependency
+              </li>
+
+            </ul>
+
+
+            <button class="primary-button" id="recommendationButton">
+              View All Recommendations
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ALERTS -->
+      <div class="panel alerts-panel">
+
+        <div class="panel-header">
+
+          <h2>Recent Alerts</h2>
+
+          <a href="#">View All</a>
+
+        </div>
+
+
+        <div class="alert-item">
+
+          <div class="alert-icon danger">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+
+          <div class="alert-info">
+            <h3>High Consumption Detected</h3>
+            <p>
+              Building B is consuming 40% more energy than usual.
+            </p>
+          </div>
+
+          <span>10:30 AM</span>
+
+        </div>
+
+
+        <div class="alert-item">
+
+          <div class="alert-icon warning">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+
+          <div class="alert-info">
+            <h3>Low Solar Generation</h3>
+            <p>
+              Generation is lower than expected due to cloudy weather.
+            </p>
+          </div>
+
+          <span>09:15 AM</span>
+
+        </div>
+
+
+        <div class="alert-item">
+
+          <div class="alert-icon info">
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
+
+          <div class="alert-info">
+            <h3>Battery Almost Full</h3>
+            <p>
+              Battery storage will be full by 2 PM.
+            </p>
+          </div>
+
+          <span>08:45 AM</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- RESOURCE DISTRIBUTION -->
+      <div class="panel distribution-panel">
+
+        <h2>Resource Distribution</h2>
+
+
+        <div class="distribution-content">
+
+          <div class="donut-chart">
+
+            <div class="donut-center">
+              <span>Total</span>
+              <h2>56.4</h2>
+              <small>kWh</small>
+            </div>
+
+          </div>
+
+
+          <div class="distribution-list">
+
+            <div>
+              <span class="dot building-a"></span>
+              <span>Building A</span>
+              <strong>22.4 kWh</strong>
+            </div>
+
+            <div>
+              <span class="dot building-b"></span>
+              <span>Building B</span>
+              <strong>16.8 kWh</strong>
+            </div>
+
+            <div>
+              <span class="dot building-c"></span>
+              <span>Building C</span>
+              <strong>11.2 kWh</strong>
+            </div>
+
+            <div>
+              <span class="dot others"></span>
+              <span>Others</span>
+              <strong>6.0 kWh</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOTTOM BANNER -->
+    <section class="sustainability-banner">
+
+      <div class="banner-icon">🌍</div>
+
+      <div>
+
+        <h2>
+          Together, we can build a sustainable tomorrow.
+        </h2>
+
+        <p>
+          Every unit saved today makes a bigger difference tomorrow.
+        </p>
+
+      </div>
+
+
+      <button class="primary-button" id="reportButton">
+        Explore Full Report
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
