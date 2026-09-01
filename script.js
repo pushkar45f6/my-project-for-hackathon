@@ -1,8 +1,8 @@
 // ================================
-// DUMMY DATA
+// API DATA
 // ================================
 
-const dashboardData = {
+const defaultDashboardData = {
   solarGenerated: 24.8,
   energyConsumed: 19.2,
   energyStored: 12.6,
@@ -11,28 +11,54 @@ const dashboardData = {
   sustainabilityScore: 87
 };
 
+let dashboardData = { ...defaultDashboardData };
 
-// ================================
-// UPDATE DASHBOARD
-// ================================
+async function fetchGreenlinkData() {
+  try {
+    const response = await fetch("api/greenlink-data.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Unable to fetch data");
 
-document.getElementById("solarGenerated").textContent =
-  `${dashboardData.solarGenerated} kWh`;
+    const payload = await response.json();
+    if (payload && payload.dashboard) {
+      dashboardData = { ...defaultDashboardData, ...payload.dashboard };
+    }
+  } catch (error) {
+    dashboardData = { ...defaultDashboardData };
+    console.warn("Falling back to default GreenLink dashboard data.", error);
+  }
 
-document.getElementById("energyConsumed").textContent =
-  `${dashboardData.energyConsumed} kWh`;
+  updateDashboardValues();
+}
 
-document.getElementById("energyStored").textContent =
-  `${dashboardData.energyStored} kWh`;
+function updateDashboardValues() {
+  const solarGeneratedEl = document.getElementById("solarGenerated");
+  const energyConsumedEl = document.getElementById("energyConsumed");
+  const energyStoredEl = document.getElementById("energyStored");
+  const co2ReducedEl = document.getElementById("co2Reduced");
+  const waterSavedEl = document.getElementById("waterSaved");
+  const sustainabilityScoreEl = document.getElementById("score");
 
-document.getElementById("co2Reduced").textContent =
-  `${dashboardData.co2Reduced} kg`;
+  if (solarGeneratedEl && energyConsumedEl) {
+    solarGeneratedEl.textContent = `${dashboardData.solarGenerated} kWh`;
+    energyConsumedEl.textContent = `${dashboardData.energyConsumed} kWh`;
+  }
 
-document.getElementById("waterSaved").textContent =
-  `${dashboardData.waterSaved} L`;
+  if (energyStoredEl) {
+    energyStoredEl.textContent = `${dashboardData.energyStored} kWh`;
+  }
 
-document.getElementById("score").textContent =
-  dashboardData.sustainabilityScore;
+  if (co2ReducedEl) {
+    co2ReducedEl.textContent = `${dashboardData.co2Reduced} kg`;
+  }
+
+  if (waterSavedEl) {
+    waterSavedEl.textContent = `${dashboardData.waterSaved} L`;
+  }
+
+  if (sustainabilityScoreEl) {
+    sustainabilityScoreEl.textContent = dashboardData.sustainabilityScore;
+  }
+}
 
 
 // ================================
@@ -40,26 +66,24 @@ document.getElementById("score").textContent =
 // ================================
 
 function simulateLiveData() {
-  dashboardData.solarGenerated +=
-    Math.random() * 0.4 - 0.1;
+  const solarGeneratedEl = document.getElementById("solarGenerated");
+  const energyConsumedEl = document.getElementById("energyConsumed");
 
-  dashboardData.energyConsumed +=
-    Math.random() * 0.3 - 0.15;
+  if (!solarGeneratedEl || !energyConsumedEl) return;
 
-  dashboardData.solarGenerated =
-    Math.max(0, dashboardData.solarGenerated);
+  dashboardData.solarGenerated += Math.random() * 0.4 - 0.1;
+  dashboardData.energyConsumed += Math.random() * 0.3 - 0.15;
+  dashboardData.solarGenerated = Math.max(0, dashboardData.solarGenerated);
+  dashboardData.energyConsumed = Math.max(0, dashboardData.energyConsumed);
 
-  dashboardData.energyConsumed =
-    Math.max(0, dashboardData.energyConsumed);
-
-  document.getElementById("solarGenerated").textContent =
-    `${dashboardData.solarGenerated.toFixed(1)} kWh`;
-
-  document.getElementById("energyConsumed").textContent =
-    `${dashboardData.energyConsumed.toFixed(1)} kWh`;
+  solarGeneratedEl.textContent = `${dashboardData.solarGenerated.toFixed(1)} kWh`;
+  energyConsumedEl.textContent = `${dashboardData.energyConsumed.toFixed(1)} kWh`;
 }
 
-setInterval(simulateLiveData, 5000);
+if (document.getElementById("solarGenerated") && document.getElementById("energyConsumed")) {
+  fetchGreenlinkData();
+  setInterval(simulateLiveData, 5000);
+}
 
 
 // ================================
@@ -123,9 +147,7 @@ const navItems =
   document.querySelectorAll(".nav-item");
 
 navItems.forEach(item => {
-  item.addEventListener("click", function (event) {
-    event.preventDefault();
-
+  item.addEventListener("click", function () {
     navItems.forEach(nav => {
       nav.classList.remove("active");
     });
@@ -137,6 +159,21 @@ navItems.forEach(item => {
     }
   });
 });
+
+// ================================
+// FLOATING IDEAS BUTTON
+// ================================
+
+const floatingIdeasButton = document.querySelector(".floating-ideas-button");
+
+if (!floatingIdeasButton) {
+  const ideasButton = document.createElement("a");
+  ideasButton.href = "ideas.html";
+  ideasButton.className = "floating-ideas-button";
+  ideasButton.setAttribute("aria-label", "Ideas & Innovation");
+  ideasButton.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+  document.body.appendChild(ideasButton);
+}
 
 
 // ================================

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideas & Innovation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <button class="close-sidebar" id="closeSidebar" aria-label="Close sidebar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="logo">
+      <div class="logo-icon">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <div>
+        <h2>GreenLink</h2>
+        <p>Connecting for a greener future.</p>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-table-columns"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="predictions.html" class="nav-item">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Predictions</span>
+      </a>
+
+      <a href="alerts.html" class="nav-item">
+        <i class="fa-solid fa-bell"></i>
+        <span>Alerts</span>
+      </a>
+
+      <a href="reports.html" class="nav-item">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>Reports</span>
+      </a>
+
+      <a href="ideas.html" class="nav-item active">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>Ideas & Innovation</span>
+      </a>
+
+      <a href="settings.html" class="nav-item">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+
+      <a href="help.html" class="nav-item">
+        <i class="fa-regular fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sustainability-card">
+      <h3>Sustainability Score</h3>
+      <div class="score-circle">
+        <div class="score-inner">
+          <span id="score">87</span>
+          <small>/100</small>
+        </div>
+      </div>
+      <div class="score-status">
+        <i class="fa-solid fa-leaf"></i>
+        Excellent
+      </div>
+      <p>
+        You are doing great!<br>
+        Keep improving 🌱
+      </p>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <button class="mobile-menu-btn" id="openSidebar" aria-label="Open sidebar">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="top-header">
+      <div class="welcome-section">
+        <h1>Ideas & Innovation</h1>
+        <p>Capture opportunities, improve efficiency, and accelerate sustainable growth.</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search anything...">
+        </div>
+
+        <div class="icon-button notification">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notification-count">4</span>
+        </div>
+
+        <div class="icon-button theme-icon">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+
+        <div class="profile">
+          <div class="avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <span>Admin</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-toolbar">
+      <div class="page-toolbar-grid">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="ideaSearch" type="text" placeholder="Search ideas">
+        </div>
+
+        <div class="filter-group">
+          <select id="ideaFilterCategory">
+            <option value="all">All categories</option>
+            <option value="Energy">Energy</option>
+            <option value="Water">Water</option>
+            <option value="Efficiency">Efficiency</option>
+            <option value="Storage">Storage</option>
+          </select>
+
+          <select id="ideaFilterStatus">
+            <option value="all">All status</option>
+            <option value="Review">Review</option>
+            <option value="Approved">Approved</option>
+            <option value="Implemented">Implemented</option>
+          </select>
+        </div>
+
+        <button class="primary-button" id="submitIdeaButton">Submit Idea</button>
+      </div>
+    </section>
+
+    <section class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-head">
+          <div class="summary-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <span class="status-badge read">Total</span>
+        </div>
+        <div class="summary-label">Ideas</div>
+        <div class="summary-value" id="totalIdeas">0</div>
+        <div class="summary-foot positive">12 active concepts</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-head">
+          <div class="summary-icon"><i class="fa-solid fa-spinner"></i></div>
+          <span class="status-badge read">Review</span>
+        </div>
+        <div class="summary-label">In Review</div>
+        <div class="summary-value" id="reviewIdeas">0</div>
+        <div class="summary-foot">4 pending decisions</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-head">
+          <div class="summary-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <span class="status-badge read">Approved</span>
+        </div>
+        <div class="summary-label">Approved</div>
+        <div class="summary-value" id="approvedIdeas">0</div>
+        <div class="summary-foot positive">2 ready to launch</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-head">
+          <div class="summary-icon"><i class="fa-solid fa-chart-pie"></i></div>
+          <span class="status-badge read">Impact</span>
+        </div>
+        <div class="summary-label">Potential Savings</div>
+        <div class="summary-value">18.4%</div>
+        <div class="summary-foot positive">Projected annual gain</div>
+      </div>
+    </section>
+
+    <section class="ideas-layout">
+      <div class="section-card">
+        <div class="section-card-header">
+          <h2>Innovation Pipeline</h2>
+          <div class="section-actions">
+            <button class="secondary-button" id="refreshIdeas">Refresh</button>
+          </div>
+        </div>
+
+        <div id="ideaList" class="ideas-card-list"></div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card-header">
+          <h2>Submit a New Idea</h2>
+        </div>
+
+        <form id="ideaForm" class="idea-form">
+          <div class="form-group">
+            <label>Title</label>
+            <input class="idea-input" type="text" name="title" placeholder="Smart battery balancing strategy" required>
+          </div>
+
+          <div class="form-group">
+            <label>Category</label>
+            <select name="category">
+              <option>Energy</option>
+              <option>Water</option>
+              <option>Efficiency</option>
+              <option>Storage</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="idea-textarea" name="description" placeholder="Describe the opportunity, expected benefit, and implementation approach." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Estimated impact</label>
+            <input class="idea-input" type="text" name="impact" placeholder="e.g. 12% lower battery losses">
+          </div>
+
+          <button type="submit" class="primary-button">Send Idea for Review</button>
+        </form>
+
+        <div class="idea-panel-metrics">
+          <div class="idea-metric">
+            <small>Open ideas</small>
+            <strong id="openIdeasValue">7</strong>
+          </div>
+          <div class="idea-metric">
+            <small>Approved</small>
+            <strong id="approvedIdeasValue">3</strong>
+          </div>
+          <div class="idea-metric">
+            <small>Efficiency gain</small>
+            <strong>+9.7%</strong>
+          </div>
+          <div class="idea-metric">
+            <small>Avg. score</small>
+            <strong>88</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="ideaToast">Idea submitted successfully.</div>
+
+  <a class="floating-ideas-button" href="ideas.html" aria-label="Ideas & Innovation">
+    <i class="fa-solid fa-lightbulb"></i>
+  </a>
+
+  <script src="script.js"></script>
+  <script>
+    let ideaData = [];
+
+    const ideaList = document.getElementById('ideaList');
+    const ideaFilterCategory = document.getElementById('ideaFilterCategory');
+    const ideaFilterStatus = document.getElementById('ideaFilterStatus');
+    const ideaSearch = document.getElementById('ideaSearch');
+    const ideaForm = document.getElementById('ideaForm');
+    const ideaToast = document.getElementById('ideaToast');
+
+    async function loadIdeasData() {
+      try {
+        const response = await fetch('api/greenlink-data.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Unable to fetch idea data');
+        const payload = await response.json();
+        ideaData = Array.isArray(payload.ideas) ? payload.ideas : [];
+      } catch (error) {
+        ideaData = [];
+        console.warn('Unable to load idea data from API. Using empty state.', error);
+      }
+
+      renderIdeas();
+    }
+
+    function renderIdeas() {
+      const query = ideaSearch.value.trim().toLowerCase();
+      const category = ideaFilterCategory.value;
+      const status = ideaFilterStatus.value;
+
+      const filteredIdeas = ideaData.filter(idea => {
+        const matchesQuery = idea.title.toLowerCase().includes(query) || idea.description.toLowerCase().includes(query);
+        const matchesCategory = category === 'all' || idea.category === category;
+        const matchesStatus = status === 'all' || idea.status === status;
+        return matchesQuery && matchesCategory && matchesStatus;
+      });
+
+      const totalCount = ideaData.length;
+      const reviewCount = ideaData.filter(item => item.status === 'Review').length;
+      const approvedCount = ideaData.filter(item => item.status === 'Approved').length;
+
+      document.getElementById('totalIdeas').textContent = totalCount;
+      document.getElementById('reviewIdeas').textContent = reviewCount;
+      document.getElementById('approvedIdeas').textContent = approvedCount;
+      document.getElementById('openIdeasValue').textContent = totalCount - approvedCount;
+      document.getElementById('approvedIdeasValue').textContent = approvedCount;
+
+      if (!filteredIdeas.length) {
+        ideaList.innerHTML = '<div class="section-card" style="padding: 18px; margin:0;">No ideas match your current filters.</div>';
+        return;
+      }
+
+      ideaList.innerHTML = filteredIdeas.map(idea => `
+        <article class="idea-card">
+          <div class="idea-head">
+            <div>
+              <h3>${idea.title}</h3>
+              <div class="idea-tags">
+                <span class="idea-tag">${idea.category}</span>
+                <span class="idea-tag">${idea.impact}</span>
+              </div>
+            </div>
+            <span class="idea-status ${idea.status.toLowerCase()}">${idea.status}</span>
+          </div>
+
+          <p>${idea.description}</p>
+
+          <div class="idea-meta">
+            <div class="idea-score">
+              <i class="fa-solid fa-thumbs-up"></i>
+              <span>${idea.votes} votes</span>
+            </div>
+            <div class="idea-score">
+              <i class="fa-solid fa-star"></i>
+              <span>Score ${idea.score}</span>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    [ideaSearch, ideaFilterCategory, ideaFilterStatus].forEach(element => {
+      element.addEventListener('input', renderIdeas);
+      element.addEventListener('change', renderIdeas);
+    });
+
+    document.getElementById('refreshIdeas').addEventListener('click', loadIdeasData);
+
+    document.getElementById('submitIdeaButton').addEventListener('click', function () {
+      document.getElementById('ideaForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    ideaForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(ideaForm);
+      const newIdea = {
+        title: formData.get('title'),
+        category: formData.get('category'),
+        status: 'Review',
+        impact: formData.get('impact') || 'Early-stage opportunity',
+        description: formData.get('description'),
+        score: 85,
+        votes: 0
+      };
+
+      ideaData.unshift(newIdea);
+      ideaForm.reset();
+      renderIdeas();
+
+      ideaToast.classList.add('show');
+      setTimeout(function () {
+        ideaToast.classList.remove('show');
+      }, 1800);
+    });
+
+    loadIdeasData();
+  </script>
+</body>
+</html>

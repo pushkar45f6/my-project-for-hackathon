@@ -1,0 +1,221 @@
+{
+  "dashboard": {
+    "solarGenerated": 24.8,
+    "energyConsumed": 19.2,
+    "energyStored": 12.6,
+    "co2Reduced": 18.7,
+    "waterSaved": 320,
+    "sustainabilityScore": 87
+  },
+  "alerts": [
+    {
+      "id": 1,
+      "severity": "critical",
+      "title": "Abnormal Energy Consumption",
+      "description": "Building B is consuming significantly more energy than expected.",
+      "time": "08:45 AM",
+      "date": "2026-09-01",
+      "location": "Building B",
+      "read": false,
+      "icon": "fa-solid fa-triangle-exclamation"
+    },
+    {
+      "id": 2,
+      "severity": "warning",
+      "title": "Low Solar Generation",
+      "description": "Solar generation is below the expected level due to cloudy conditions.",
+      "time": "Yesterday, 4:20 PM",
+      "date": "2026-08-31",
+      "location": "Solar Array A",
+      "read": true,
+      "icon": "fa-solid fa-cloud-sun"
+    },
+    {
+      "id": 3,
+      "severity": "warning",
+      "title": "Battery Almost Full",
+      "description": "Battery reserves are approaching maximum capacity during peak generation hours.",
+      "time": "Today, 10:15 AM",
+      "date": "2026-09-01",
+      "location": "Battery Storage Unit 2",
+      "read": false,
+      "icon": "fa-solid fa-battery-three-quarters"
+    },
+    {
+      "id": 4,
+      "severity": "info",
+      "title": "High Solar Generation Window",
+      "description": "Optimal solar generation expected between 10 AM and 2 PM.",
+      "time": "Today, 9:00 AM",
+      "date": "2026-09-01",
+      "location": "Solar Farm North",
+      "read": false,
+      "icon": "fa-solid fa-solar-panel"
+    },
+    {
+      "id": 5,
+      "severity": "info",
+      "title": "Water Recycling Target On Track",
+      "description": "The current water recycling utilization is trending above the weekly target.",
+      "time": "Jun 27, 7:55 AM",
+      "date": "2026-06-27",
+      "location": "Water Recovery Plant",
+      "read": true,
+      "icon": "fa-solid fa-droplet"
+    },
+    {
+      "id": 6,
+      "severity": "critical",
+      "title": "Generator Offline",
+      "description": "One wind turbine is offline for scheduled maintenance and is being monitored.",
+      "time": "Jun 25, 1:30 PM",
+      "date": "2026-06-25",
+      "location": "Wind Ridge 4",
+      "read": true,
+      "icon": "fa-solid fa-wind"
+    }
+  ],
+  "reports": {
+    "summary": [
+      {
+        "label": "Total Energy Generated",
+        "value": "1,284",
+        "unit": "kWh",
+        "change": "+12.5% vs previous period",
+        "positive": true
+      },
+      {
+        "label": "Total Energy Consumed",
+        "value": "921",
+        "unit": "kWh",
+        "change": "-8.4% vs previous period",
+        "positive": false
+      },
+      {
+        "label": "Energy Saved",
+        "value": "363",
+        "unit": "Saved",
+        "change": "+14.8% efficiency",
+        "positive": true
+      },
+      {
+        "label": "CO₂ Reduced",
+        "value": "154",
+        "unit": "CO₂",
+        "change": "kg reduced",
+        "positive": true
+      },
+      {
+        "label": "Water Saved",
+        "value": "2,480",
+        "unit": "L",
+        "change": "+10.2% vs previous period",
+        "positive": true
+      },
+      {
+        "label": "Renewable Utilization",
+        "value": "76",
+        "unit": "%",
+        "change": "Improved utilization",
+        "positive": true
+      }
+    ],
+    "energyChart": {
+      "generated": [35, 90, 145, 200, 255, 310, 365, 420, 475, 530, 560],
+      "consumed": [35, 90, 145, 200, 255, 310, 365, 420, 475, 530, 560],
+      "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"]
+    },
+    "resourcePerformance": {
+      "Solar": 65,
+      "Wind": 52,
+      "Hydro": 41,
+      "Geo": 36,
+      "Bio": 29
+    },
+    "distribution": [
+      { "label": "Solar Farm", "value": 42, "color": "#2f9b63" },
+      { "label": "Wind Park", "value": 26, "color": "#3c88d3" },
+      { "label": "Hydro", "value": 20, "color": "#e9aa2b" },
+      { "label": "Others", "value": 12, "color": "#7752b8" }
+    ],
+    "trends": [35, 90, 145, 200, 255, 310, 365, 420, 475, 530, 560],
+    "insights": [
+      "Solar generation increased by 12.5% compared with the previous period.",
+      "Peak consumption occurred between 12 PM and 4 PM.",
+      "Renewable utilization improved compared with the previous period."
+    ]
+  },
+  "ideas": [
+    {
+      "title": "Smart Battery Balancing Strategy",
+      "category": "Energy",
+      "status": "Review",
+      "impact": "12% lower battery losses",
+      "description": "Real-time balancing between storage units can optimize charge timing and extend equipment life during peak generation hours.",
+      "score": 92,
+      "votes": 48
+    },
+    {
+      "title": "Rainwater Recovery Loop",
+      "category": "Water",
+      "status": "Approved",
+      "impact": "8% water reuse improvement",
+      "description": "Collecting and recirculating rainwater across site operations could significantly reduce freshwater demand and improve resilience.",
+      "score": 90,
+      "votes": 74
+    },
+    {
+      "title": "Energy Aware HVAC Scheduling",
+      "category": "Efficiency",
+      "status": "Implemented",
+      "impact": "7% HVAC energy reduction",
+      "description": "Dynamic HVAC scheduling aligned with solar availability and occupancy patterns could improve comfort while reducing grid dependence.",
+      "score": 87,
+      "votes": 58
+    },
+    {
+      "title": "Distributed Solar Optimization",
+      "category": "Energy",
+      "status": "Review",
+      "impact": "15% generation uplift",
+      "description": "Adjusting panel orientation and maintenance windows could improve generation during cloudy periods and reduce lost output.",
+      "score": 94,
+      "votes": 81
+    }
+  ],
+  "settings": {
+    "profile": {
+      "name": "Alex Morgan",
+      "email": "alex@greenlink.io",
+      "role": "Operations Manager",
+      "organization": "North Ridge Renewables"
+    },
+    "notifications": {
+      "criticalAlerts": true,
+      "energyAlerts": true,
+      "generationAlerts": true,
+      "sustainabilityUpdates": false,
+      "innovationNotifications": true
+    },
+    "preferences": {
+      "dashboardView": "Overview",
+      "timeRange": "Last 7 days",
+      "resource": "Solar",
+      "showRecommendations": true,
+      "showAlerts": true
+    },
+    "location": {
+      "location": "Bengaluru, India",
+      "primaryResource": "Solar",
+      "monitoringPreference": "Auto-sync"
+    },
+    "security": {
+      "twoFactorEnabled": true,
+      "activeSessions": 3
+    },
+    "appearance": {
+      "theme": "Forest",
+      "density": "Comfortable"
+    }
+  }
+}

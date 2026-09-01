@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <button class="close-sidebar" id="closeSidebar" aria-label="Close sidebar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="logo">
+      <div class="logo-icon">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <div>
+        <h2>GreenLink</h2>
+        <p>Connecting for a greener future.</p>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-table-columns"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="predictions.html" class="nav-item">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Predictions</span>
+      </a>
+
+      <a href="alerts.html" class="nav-item">
+        <i class="fa-solid fa-bell"></i>
+        <span>Alerts</span>
+      </a>
+
+      <a href="reports.html" class="nav-item">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>Reports</span>
+      </a>
+
+      <a href="ideas.html" class="nav-item">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>Ideas & Innovation</span>
+      </a>
+
+      <a href="settings.html" class="nav-item active">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+
+      <a href="help.html" class="nav-item">
+        <i class="fa-regular fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sustainability-card">
+      <h3>Sustainability Score</h3>
+      <div class="score-circle">
+        <div class="score-inner">
+          <span id="score">87</span>
+          <small>/100</small>
+        </div>
+      </div>
+      <div class="score-status">
+        <i class="fa-solid fa-leaf"></i>
+        Excellent
+      </div>
+      <p>
+        You are doing great!<br>
+        Keep improving 🌱
+      </p>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <button class="mobile-menu-btn" id="openSidebar" aria-label="Open sidebar">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="top-header">
+      <div class="welcome-section">
+        <h1>Settings</h1>
+        <p>Manage your GreenLink preferences and account.</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search anything...">
+        </div>
+
+        <div class="icon-button notification">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notification-count">4</span>
+        </div>
+
+        <div class="icon-button theme-icon">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+
+        <div class="profile">
+          <div class="avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <span>Admin</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </header>
+
+    <section class="settings-grid">
+      <div class="settings-card">
+        <h3>Profile</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input id="profileName" type="text" value="Alex Morgan">
+          </div>
+          <div class="form-group">
+            <label>Role</label>
+            <input id="profileRole" type="text" value="Operations Manager">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input id="profileEmail" type="email" value="alex@greenlink.io">
+          </div>
+          <div class="form-group">
+            <label>Organization</label>
+            <input id="profileOrganization" type="text" value="North Ridge Renewables">
+          </div>
+        </div>
+
+        <button class="secondary-button">Edit Profile</button>
+      </div>
+
+      <div class="settings-card">
+        <h3>Notification Settings</h3>
+
+        <div class="toggle-list">
+          <div class="toggle-row">
+            <span>Critical alerts</span>
+            <label class="switch">
+              <input id="notificationCriticalAlerts" data-setting="criticalAlerts" type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Energy alerts</span>
+            <label class="switch">
+              <input id="notificationEnergyAlerts" data-setting="energyAlerts" type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Generation alerts</span>
+            <label class="switch">
+              <input id="notificationGenerationAlerts" data-setting="generationAlerts" type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Sustainability updates</span>
+            <label class="switch">
+              <input id="notificationSustainabilityUpdates" data-setting="sustainabilityUpdates" type="checkbox">
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Idea/innovation notifications</span>
+            <label class="switch">
+              <input id="notificationInnovationNotifications" data-setting="innovationNotifications" type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <h3>Dashboard Preferences</h3>
+
+        <div class="form-group">
+          <label>Default dashboard view</label>
+          <select id="defaultDashboardView">
+            <option selected>Overview</option>
+            <option>Resource view</option>
+            <option>Forecast view</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Default time range</label>
+            <select id="defaultTimeRange">
+              <option selected>Last 7 days</option>
+              <option>Last 30 days</option>
+              <option>Last 90 days</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred resource</label>
+            <select id="preferredResource">
+              <option selected>Solar</option>
+              <option>Wind</option>
+              <option>Battery</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="toggle-list">
+          <div class="toggle-row">
+            <span>Show recommendations</span>
+            <label class="switch">
+              <input id="showRecommendations" data-setting="showRecommendations" type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <span>Show alerts</span>
+            <label class="switch">
+              <input id="showAlerts" data-setting="showAlerts" type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <h3>Location & Resource Settings</h3>
+
+        <div class="form-group">
+          <label>Location</label>
+          <input id="locationSetting" type="text" value="Bengaluru, India">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Primary renewable resource</label>
+            <select id="primaryRenewableResource">
+              <option selected>Solar</option>
+              <option>Wind</option>
+              <option>Hydro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Monitoring preferences</label>
+            <select id="monitoringPreferences">
+              <option selected>Daily summary</option>
+              <option>Hourly summary</option>
+              <option>Real-time updates</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <h3>Security</h3>
+
+        <div class="toggle-list">
+          <div class="toggle-row">
+            <span>Two-factor authentication</span>
+            <label class="switch">
+              <input id="twoFactorAuth" data-setting="twoFactorEnabled" type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 18px;">
+          <label>Active sessions</label>
+          <input id="activeSessions" type="text" value="3 active sessions • Last login 2h ago" readonly>
+        </div>
+
+        <button class="secondary-button">Change password</button>
+      </div>
+
+      <div class="settings-card">
+        <h3>Appearance</h3>
+
+        <div class="form-group">
+          <label>Theme selector</label>
+          <select id="themeSelector">
+            <option selected>Green / Default</option>
+            <option>Forest</option>
+            <option>Light</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Dashboard density</label>
+          <select id="dashboardDensity">
+            <option selected>Comfortable</option>
+            <option>Compact</option>
+            <option>Expanded</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div class="save-bar">
+      <button class="primary-button" id="saveSettings">Save Changes</button>
+    </div>
+  </main>
+
+  <div class="toast" id="settingsToast">Settings saved successfully.</div>
+
+  <a class="floating-ideas-button" href="ideas.html" aria-label="Ideas & Innovation">
+    <i class="fa-solid fa-lightbulb"></i>
+  </a>
+
+  <script src="script.js"></script>
+  <script>
+    const saveButton = document.getElementById('saveSettings');
+    const toast = document.getElementById('settingsToast');
+
+    async function loadSettingsData() {
+      try {
+        const response = await fetch('api/greenlink-data.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Unable to fetch settings');
+        const payload = await response.json();
+        const settings = payload.settings || {};
+
+        const profile = settings.profile || {};
+        document.getElementById('profileName').value = profile.name || 'Alex Morgan';
+        document.getElementById('profileEmail').value = profile.email || 'alex@greenlink.io';
+        document.getElementById('profileRole').value = profile.role || 'Operations Manager';
+        document.getElementById('profileOrganization').value = profile.organization || 'North Ridge Renewables';
+
+        const notifications = settings.notifications || {};
+        document.getElementById('notificationCriticalAlerts').checked = notifications.criticalAlerts ?? true;
+        document.getElementById('notificationEnergyAlerts').checked = notifications.energyAlerts ?? true;
+        document.getElementById('notificationGenerationAlerts').checked = notifications.generationAlerts ?? true;
+        document.getElementById('notificationSustainabilityUpdates').checked = notifications.sustainabilityUpdates ?? false;
+        document.getElementById('notificationInnovationNotifications').checked = notifications.innovationNotifications ?? true;
+
+        const preferences = settings.preferences || {};
+        document.getElementById('defaultDashboardView').value = preferences.dashboardView || 'Overview';
+        document.getElementById('defaultTimeRange').value = preferences.timeRange || 'Last 7 days';
+        document.getElementById('preferredResource').value = preferences.resource || 'Solar';
+        document.getElementById('showRecommendations').checked = preferences.showRecommendations ?? true;
+        document.getElementById('showAlerts').checked = preferences.showAlerts ?? true;
+
+        const locationSettings = settings.location || {};
+        document.getElementById('locationSetting').value = locationSettings.location || 'Bengaluru, India';
+        document.getElementById('primaryRenewableResource').value = locationSettings.primaryResource || 'Solar';
+        document.getElementById('monitoringPreferences').value = locationSettings.monitoringPreference || 'Daily summary';
+
+        const security = settings.security || {};
+        document.getElementById('twoFactorAuth').checked = security.twoFactorEnabled ?? true;
+        document.getElementById('activeSessions').value = `${security.activeSessions || 3} active sessions • Last login 2h ago`;
+
+        const appearance = settings.appearance || {};
+        const themeOption = Array.from(document.getElementById('themeSelector').options).find(option => option.value === (appearance.theme || 'Forest'));
+        if (themeOption) document.getElementById('themeSelector').value = themeOption.value;
+        const densityOption = Array.from(document.getElementById('dashboardDensity').options).find(option => option.value === (appearance.density || 'Comfortable'));
+        if (densityOption) document.getElementById('dashboardDensity').value = densityOption.value;
+      } catch (error) {
+        console.warn('Using the default settings values.', error);
+      }
+    }
+
+    saveButton.addEventListener('click', function () {
+      toast.classList.add('show');
+      setTimeout(function () {
+        toast.classList.remove('show');
+      }, 1800);
+    });
+
+    loadSettingsData();
+  </script>
+</body>
+</html>

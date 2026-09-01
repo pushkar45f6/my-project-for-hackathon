@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerts & Notifications</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <button class="close-sidebar" id="closeSidebar" aria-label="Close sidebar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="logo">
+      <div class="logo-icon">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+
+      <div>
+        <h2>GreenLink</h2>
+        <p>Connecting for a greener future.</p>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-table-columns"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="predictions.html" class="nav-item">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Predictions</span>
+      </a>
+
+      <a href="alerts.html" class="nav-item active">
+        <i class="fa-solid fa-bell"></i>
+        <span>Alerts</span>
+      </a>
+
+      <a href="reports.html" class="nav-item">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>Reports</span>
+      </a>
+
+      <a href="ideas.html" class="nav-item">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>Ideas & Innovation</span>
+      </a>
+
+      <a href="settings.html" class="nav-item">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+      </a>
+
+      <a href="help.html" class="nav-item">
+        <i class="fa-regular fa-circle-question"></i>
+        <span>Help & Support</span>
+      </a>
+    </nav>
+
+    <div class="sustainability-card">
+      <h3>Sustainability Score</h3>
+      <div class="score-circle">
+        <div class="score-inner">
+          <span id="score">87</span>
+          <small>/100</small>
+        </div>
+      </div>
+      <div class="score-status">
+        <i class="fa-solid fa-leaf"></i>
+        Excellent
+      </div>
+      <p>
+        You are doing great!<br>
+        Keep improving 🌱
+      </p>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <button class="mobile-menu-btn" id="openSidebar" aria-label="Open sidebar">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="top-header">
+      <div class="welcome-section">
+        <h1>Alerts & Notifications</h1>
+        <p>Monitor important events and unusual patterns across your renewable resources.</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search anything...">
+        </div>
+
+        <div class="icon-button notification">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notification-count">4</span>
+        </div>
+
+        <div class="icon-button theme-icon">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+
+        <div class="profile">
+          <div class="avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <span>Admin</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-toolbar">
+      <div class="page-toolbar-grid">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="alertSearch" type="text" placeholder="Search alerts">
+        </div>
+
+        <div class="filter-group">
+          <select id="severityFilter">
+            <option value="all">All severities</option>
+            <option value="critical">Critical</option>
+            <option value="warning">Warning</option>
+            <option value="info">Information</option>
+          </select>
+
+          <select id="statusFilter">
+            <option value="all">All status</option>
+            <option value="unread">Unread</option>
+            <option value="read">Read</option>
+          </select>
+
+          <select id="dateFilter">
+            <option value="all">Any date</option>
+            <option value="today">Today</option>
+            <option value="week">Last 7 days</option>
+            <option value="month">Last 30 days</option>
+          </select>
+        </div>
+
+        <button class="primary-button" id="markAllRead">Mark all as read</button>
+      </div>
+    </section>
+
+    <section class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-head">
+          <div class="summary-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <span class="severity-badge critical">Critical</span>
+        </div>
+        <div class="summary-label">Critical</div>
+        <div class="summary-value" id="criticalCount">0</div>
+        <div class="summary-foot positive">2 urgent</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-head">
+          <div class="summary-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+          <span class="severity-badge warning">Warning</span>
+        </div>
+        <div class="summary-label">Warnings</div>
+        <div class="summary-value" id="warningCount">0</div>
+        <div class="summary-foot">3 under review</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-head">
+          <div class="summary-icon"><i class="fa-solid fa-circle-info"></i></div>
+          <span class="severity-badge info">Info</span>
+        </div>
+        <div class="summary-label">Information</div>
+        <div class="summary-value" id="infoCount">0</div>
+        <div class="summary-foot positive">4 updates</div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-head">
+          <div class="summary-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <span class="status-badge read">Resolved</span>
+        </div>
+        <div class="summary-label">Resolved</div>
+        <div class="summary-value" id="resolvedCount">0</div>
+        <div class="summary-foot positive">Stable</div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-card-header">
+        <h2>Alert Feed</h2>
+        <div class="section-actions">
+          <button class="secondary-button" id="refreshAlerts">Refresh</button>
+        </div>
+      </div>
+
+      <div id="alertList" class="alert-list"></div>
+    </section>
+  </main>
+
+  <a class="floating-ideas-button" href="ideas.html" aria-label="Ideas & Innovation">
+    <i class="fa-solid fa-lightbulb"></i>
+  </a>
+
+  <script src="script.js"></script>
+  <script>
+    let alerts = [];
+
+    const alertList = document.getElementById('alertList');
+    const alertSearch = document.getElementById('alertSearch');
+    const severityFilter = document.getElementById('severityFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const dateFilter = document.getElementById('dateFilter');
+
+    async function loadAlertsData() {
+      try {
+        const response = await fetch('api/greenlink-data.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Unable to fetch alert data');
+        const payload = await response.json();
+        alerts = Array.isArray(payload.alerts) ? payload.alerts : [];
+      } catch (error) {
+        alerts = [];
+        console.warn('Unable to load alert data from API. Using empty state.', error);
+      }
+
+      updateSummaryCounts();
+      renderAlerts();
+    }
+
+    function updateSummaryCounts() {
+      const critical = alerts.filter(a => a.severity === 'critical').length;
+      const warning = alerts.filter(a => a.severity === 'warning').length;
+      const info = alerts.filter(a => a.severity === 'info').length;
+      const resolved = alerts.filter(a => a.read).length;
+
+      document.getElementById('criticalCount').textContent = critical;
+      document.getElementById('warningCount').textContent = warning;
+      document.getElementById('infoCount').textContent = info;
+      document.getElementById('resolvedCount').textContent = resolved;
+    }
+
+    function filterAlerts() {
+      const query = alertSearch.value.trim().toLowerCase();
+      const severity = severityFilter.value;
+      const status = statusFilter.value;
+      const date = dateFilter.value;
+
+      return alerts.filter(alert => {
+        const matchesQuery =
+          alert.title.toLowerCase().includes(query) ||
+          alert.description.toLowerCase().includes(query) ||
+          alert.location.toLowerCase().includes(query);
+
+        const matchesSeverity = severity === 'all' || alert.severity === severity;
+        const matchesStatus = status === 'all' || (status === 'read' ? alert.read : !alert.read);
+
+        let matchesDate = true;
+        if (date === 'today') {
+          matchesDate = alert.date === '2026-09-01';
+        } else if (date === 'week') {
+          matchesDate = new Date(alert.date) >= new Date('2026-08-26');
+        } else if (date === 'month') {
+          matchesDate = new Date(alert.date) >= new Date('2026-08-02');
+        }
+
+        return matchesQuery && matchesSeverity && matchesStatus && matchesDate;
+      });
+    }
+
+    function renderAlerts() {
+      const filteredAlerts = filterAlerts();
+
+      if (!filteredAlerts.length) {
+        alertList.innerHTML = '<div class="section-card" style="padding: 20px; margin-bottom: 0;">No alerts match your current filters.</div>';
+        return;
+      }
+
+      alertList.innerHTML = filteredAlerts.map(alert => `
+        <div class="alert-item-card ${alert.read ? '' : 'unread'}">
+          <div class="alert-icon ${alert.severity}">
+            <i class="${alert.icon}"></i>
+          </div>
+          <div class="alert-card-main">
+            <div class="alert-row-top">
+              <span class="severity-badge ${alert.severity}">${alert.severity}</span>
+              <span class="status-badge ${alert.read ? 'read' : 'unread'}">${alert.read ? 'Read' : 'Unread'}</span>
+            </div>
+            <h3>${alert.title}</h3>
+            <p>${alert.description}</p>
+            <div class="alert-meta">
+              <span class="alert-time">${alert.time}</span>
+              <span>${alert.location}</span>
+            </div>
+          </div>
+          <div class="alert-actions">
+            <button class="ghost-button" data-id="${alert.id}">View Details</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    [alertSearch, severityFilter, statusFilter, dateFilter].forEach(element => {
+      element.addEventListener('input', renderAlerts);
+      element.addEventListener('change', renderAlerts);
+    });
+
+    document.getElementById('markAllRead').addEventListener('click', function () {
+      alerts.forEach(alert => {
+        alert.read = true;
+      });
+      updateSummaryCounts();
+      renderAlerts();
+    });
+
+    document.getElementById('refreshAlerts').addEventListener('click', loadAlertsData);
+
+    alertList.addEventListener('click', function (event) {
+      const button = event.target.closest('.ghost-button');
+      if (!button) return;
+
+      const alertItem = alerts.find(alert => alert.id === Number(button.dataset.id));
+      if (!alertItem) return;
+
+      alertItem.read = true;
+      updateSummaryCounts();
+      renderAlerts();
+      alert(`Alert Details\n\n${alertItem.title}\n${alertItem.description}\n\nLocation: ${alertItem.location}\nTime: ${alertItem.time}`);
+    });
+
+    loadAlertsData();
+  </script>
+</body>
+</html>
